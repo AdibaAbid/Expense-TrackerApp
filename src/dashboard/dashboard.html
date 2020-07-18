@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header px-3">
+            <div class="logo-hamburger">
+                <div class="d-flex">
+                    <button class="hamburger" onclick="openNavBar()">
+                    <svg class="hamburger-svg" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+                    </svg>
+                    </button>
+                </div>
+                <div class="logo d-flex">
+                    <img src="../transaction/images/expense-logo.png" alt="Logo" srcset="" height="50px">
+                    <h5 class="mt-4">Expense <span class="font-weight-bold" style="color: #fabb47;">Tracker</span></h5>
+                </div>
+            </div>
+
+            <div class="left-content d-flex align-items-center">
+                <p class="padding mb-0">Welcome <span id="user" class="font-weight-bold text-capitalize"></span></p>
+                <img class="padding" src="../transaction/images/avatar-png-1.png" width="50px" alt="Avatar">
+                <p class="padding mb-0 logout-btn" onclick="navigation()"><i class="fas fa-power-off "></i>Logout</p>
+            </div>
+        </div>
+    </header>
+    <!-- Header section end -->
+    <main>
+        <!-- Side navBar -->
+        <div class="overlay"></div>
+        <section id="sideNavBar">
+            <span id="closeBtn" onclick="closeNavBar()">&times;</span>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="navigation(event)"><i class="fas fa-chart-area"></i>Dashboard</a></li>
+                    <li><a href="#" onclick="navigation(event)"><i class=" fas fa-hand-holding-usd "></i>Transactions</a></li>
+                    <li><a href="#" onclick="navigation(event)"><i class="fas fa-address-card "></i>About</a></li>
+                    <li><a href="#" onclick="navigation(event)"><i class="fas fa-power-off "></i>Logout</a></li>
+                </ul>
+            </nav>
+        </section>
+        <!-- side navbar end -->
+        <!-- income & expense cards -->
+        <section class="d-flex flex-row-reverse ">
+            <div class="bg-cards "></div>
+            <div class="income-card ">
+                <div>
+                    <p>Your Total Incomes are</p>
+                    <div class="d-flex justify-content-between ">
+                        <h2 id="total-Income"><span>Rs </span>0</h2>
+                        <img src="../transaction/images/up-arrow.png " alt="income symbol " height="30 ">
+                    </div>
+                </div>
+            </div>
+            <div class="expense-card ">
+                <div>
+                    <p>Your Total Expenses are</p>
+                    <div class="d-flex justify-content-between ">
+                        <h2 id="total-Expense"><span>Rs </span>0</h2>
+                        <img src="../transaction/images/down-arrow.png " alt="expense symbol " height="30 ">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- income & expense cards end -->
+        <!-- Current balance section -->
+        <section class="current-bg ">
+            <div class="current-balance ">
+                <h4>Your Available Balance</h4>
+                <div class="d-flex justify-content-between ">
+                    <h1 id="remaining-Balance"><span>Rs </span> 0</h1>
+                    <img src="../transaction/images/upload.png " alt="income symbol " height="50 ">
+                </div>
+            </div>
+        </section>
+        <!-- Current balance section end-->
+
+        <!-- Recent income and expense card section-->
+
+        <section class="income-expense-card ">
+            <section class="recent-income ">
+                <h3>Recent Incomes</h3>
+                <table class="table table-bordered ">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope=" col "></th>
+                            <th scope="col ">Projects</th>
+                            <th scope="col ">Amount</th>
+                            <th></th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td scope="row ">bla</td>
+                                <td scope="row ">blaaaaa</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </thead>
+                </table>
+
+                <div>
+                    <button class="income-btn" onclick="navigation()">View more</button>
+                </div>
+            </section>
+            <section class="recent-expense ">
+                <h3>Recent Expense</h3>
+                <table class="table table-bordered ">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope=" col ">Receipt</th>
+                            <th scope="col ">Category</th>
+                            <th scope="col ">Amount</th>
+                            <th></th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td scope="row ">bla</td>
+                                <td scope="row ">blaaaaa</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </thead>
+                </table>
+                <div>
+                    <button class="expense-btn" onclick="navigation()">View more</button>
+                </div>
+            </section>
+
+        </section>
+        <!-- Recent income and expense card section end -->
+
+        <!-- dashboard chart -->
+        <section class="d-flex justify-content-center ">
+            <div class="dashboard-chart ">
+                <div class="chart-heading">
+                    <h3>Income Overview</h3>
+                    <div class="d-flex pt-2 mr-2">
+                        <label class="filterBtn" onclick="chartData()">Filter By Year</label>
+                        <select id="chart-Year" class="form-control">
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>  
+                        <option value="2021">2022</option>     
+                    </select>
+                    </div>
+                </div>
+                <div class="container ">
+                    <div id="chartContainer"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDaVV7V9SGKMkaQw2Pjqwxvr-FuP4jWNII",
+            authDomain: "expensetracker-1149f.firebaseapp.com",
+            databaseURL: "https://expensetracker-1149f.firebaseio.com",
+            projectId: "expensetracker-1149f",
+            storageBucket: "expensetracker-1149f.appspot.com",
+            messagingSenderId: "703318557883",
+            appId: "1:703318557883:web:26734784e9c67a65da559e",
+            measurementId: "G-9ENGJ24XPS"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <!-- Chart-jsFile -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!-- JS File -->
+    <script src="dashboard.js "></script>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js "></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "></script>
+
+</body>
+
+</html>

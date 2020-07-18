@@ -1,0 +1,249 @@
+body {
+    background-color: white;
+    background-image: url("src/images/bg-new.png");
+    background-size: 105% 150%;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #008b8be0;
+    color: #fff;
+    font-size: 20px;
+    padding-top: 7px;
+}
+
+.header .btn {
+    color: #fff;
+    background-color: #008b8ba8;
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+header .btn:focus,
+header .btn:active {
+    outline: none !important;
+    box-shadow: none;
+    color: #fff;
+}
+
+header .btn:hover {
+    background-color: rgb(9, 179, 179);
+    color: #fff;
+}
+
+.image-bg {
+    display: inline-block;
+    left: 350px;
+    position: relative;
+    height: 200px;
+    border-radius: 51% 49% 33% 67% / 30% 22% 78% 70%;
+    background-color: darkcyan;
+    width: 38%;
+    opacity: .2;
+    top: -200px;
+    transition: 200ms;
+    animation-name: bg-rotate;
+    animation-timing-function: linear;
+    animation-delay: .5s;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+}
+
+.left-section {
+    height: 80vh;
+}
+
+@keyframes bg-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.left-section img {
+    height: 350px;
+    animation: bg-img 2s alternate ease-in-out 10ms infinite;
+}
+
+@keyframes bg-img {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(25px);
+    }
+}
+
+.right-section {
+    background-color: #6c757d30!important;
+    box-shadow: 0px 4px 11px 0px #bdb1b1;
+    margin-top: 1rem;
+    margin-left: 5rem;
+    width: 30%;
+    height: 86.5vh;
+    transform: scale(.8);
+    display: block;
+}
+
+.right-section .avtaar {
+    position: absolute;
+    top: -90px;
+    left: 30%;
+    display: inline-block;
+}
+
+
+/* Form */
+
+#register-form {
+    position: relative;
+    top: 55px;
+    width: 100%;
+    transition: .7s ease-in-out;
+}
+
+#login-form {
+    left: -730px;
+    position: relative;
+    top: -285px;
+    width: 100%;
+    transition: .7s ease-in-out;
+}
+
+.register-btn {
+    margin-top: 8px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.right-section input {
+    box-shadow: none;
+    outline: none;
+    border: none;
+    margin-top: 24px;
+}
+
+.right-section input:focus {
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 0 !important;
+}
+
+.floating {
+    position: absolute;
+    top: 8px;
+    left: 9px;
+    transition: 200ms;
+    opacity: .6;
+    transition: 1s;
+}
+
+.form-control:focus+.floating,
+.form-control:valid+.floating {
+    transition: 1s;
+    transform: translate3d(0, -50%, 0);
+    opacity: 0.9;
+    box-shadow: none;
+    outline: none;
+    top: -12px;
+}
+
+.error-block {
+    display: none;
+    color: red;
+}
+
+.error-block p {
+    margin: 0;
+    margin-top: -5px;
+    margin-left: 5px;
+}
+
+.login-btn button:nth-child(1) {
+    background-color: #e49d1c;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 20px;
+}
+
+.login-btn button:nth-child(1):hover,
+.login-btn button:nth-child(1):focus {
+    background-color: #c78c1e;
+    border: none;
+    box-shadow: none;
+}
+
+.login-btn button:nth-child(2) {
+    background-color: #008b8b;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.login-btn button:nth-child(2):hover,
+.login-btn button:nth-child(2):focus {
+    background-color: #077777;
+    border: none;
+    box-shadow: none;
+}
+
+.register-btn button:nth-child(1) {
+    background-color: #e49d1c;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* margin: 20px; */
+}
+
+.register-btn button:nth-child(1):hover,
+.register-btn button:nth-child(1):focus {
+    background-color: #c78c1e;
+    border: none;
+    box-shadow: none;
+}
+
+.register-btn button:nth-child(2) {
+    background-color: #008b8b;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.register-btn button:nth-child(2):hover,
+.register-btn button:nth-child(2):focus {
+    background-color: #077777;
+    border: none;
+    box-shadow: none;
+}
+
+footer {
+    margin-top: -26px;
+    background: darkcyan;
+    padding: 5px;
+    color: #fff;
+}
+
+footer h6 {
+    margin: 0;
+}

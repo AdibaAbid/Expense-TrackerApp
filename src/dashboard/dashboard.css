@@ -1,0 +1,349 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f4f4;
+}
+
+header {
+    position: sticky;
+    top: 0px;
+    z-index: 15;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkcyan;
+    color: #fff;
+    font-size: 20px;
+    padding-top: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    position: sticky;
+    /* margin-bottom: 8px; */
+}
+
+.logout-btn {
+    padding: 10px 12px;
+    cursor: pointer;
+}
+
+.fas {
+    padding-right: 5px;
+}
+
+.overlay {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #9e9e9e87;
+    display: none;
+    transition: all .5s ease-in;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#sideNavBar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    margin-right: 50px;
+    background-color: #fff;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 50px;
+    transition: all .5s ease-in-out;
+}
+
+#sideNavBar a {
+    text-decoration: none;
+    display: block;
+    font-size: 19px;
+    color: #fabb47;
+    font-weight: 500;
+    padding: 20px 0 20px 28px;
+    transition: all .5s ease-in;
+}
+
+#sideNavBar a:hover {
+    background-color: #fabb47;
+    color: #fff;
+    padding-left: 15px;
+    transition: .5s;
+}
+
+#sideNavBar .fas {
+    color: darkcyan;
+    font-size: 25px;
+    margin-right: 5px;
+    margin-bottom: -3px;
+}
+
+#closeBtn {
+    position: absolute;
+    color: rgb(253, 169, 13);
+    font-weight: 800;
+    cursor: pointer;
+    top: 0;
+    right: 25px;
+    font-size: 35px !important;
+}
+
+.padding {
+    padding-right: 10px;
+}
+
+.dashboard-chart {
+    width: 98%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    margin: 14px 12px;
+}
+
+.dashboard-chart h3 {
+    background-color: darkcyan;
+    padding: 10px;
+    color: #fff;
+}
+
+.container {
+    width: 90%;
+    height: 70%
+}
+
+.logo-hamburger {
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+}
+
+.hamburger {
+    background-color: darkcyan;
+    border: none;
+    outline: none;
+}
+
+.hamburger:focus {
+    outline: none;
+}
+
+.hamburger-svg {
+    fill: #fabb47;
+    height: 20px;
+    width: 20px;
+    transform: scale(1.5)
+}
+
+
+/* Income & Expense card  */
+
+.bg-cards {
+    background-image: url(../transaction/images/undraw_investment_data_yfvt\ \(1\).svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 45%;
+    transition: .1s all ease-in;
+    animation-name: bg-card-animation;
+    animation-duration: 1.5s;
+    /* animation-delay: 1s; */
+    animation-iteration-count: 1;
+    z-index: -9;
+    position: relative;
+}
+
+@keyframes bg-card-animation {
+    0% {
+        top: -194px;
+    }
+    100% {
+        top: 5px;
+    }
+}
+
+.income-card,
+.expense-card {
+    padding: 30px 70px;
+    width: 25%;
+    margin-right: 8px;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+.income-card h2,
+.income-card span {
+    color: darkcyan;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.expense-card h2,
+.expense-card span {
+    color: #c21a1a;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+
+/* Current balance  */
+
+.current-bg {
+    background-image: url("../transaction/images/Untitled design.png");
+    background-position: right 35% bottom 45%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.current-balance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 30px;
+    background-color: #008b8ba6;
+    margin: 20px 0 8px 0;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+.current-balance h4 {
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.current-balance h1 {
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+
+/* recent income and expense */
+
+.income-expense-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.recent-income {
+    width: 49%;
+    padding-bottom: 40px;
+    margin-left: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+.recent-expense {
+    width: 49%;
+    padding-bottom: 40px;
+    margin-right: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    background-color: #f9f9f9;
+}
+
+.recent-income h3 {
+    background-color: darkcyan;
+    color: #fff;
+    padding: 8px 12px;
+    margin-top: 5px;
+}
+
+.recent-expense h3 {
+    background-color: #fabb47;
+    color: #fff;
+    padding: 8px 12px;
+    margin-top: 5px;
+}
+
+#chartContainer {
+    height: 300px;
+    width: 100%;
+}
+
+.income-btn {
+    float: right;
+    padding: 6px 10px;
+    border: none;
+    background-color: darkcyan;
+    color: #fff;
+    transition: .5s;
+    margin-right: 8px;
+}
+
+.income-btn:focus,
+.expense-btn:focus {
+    outline: none;
+}
+
+.income-btn:hover {
+    transition: .5s;
+    background-color: #fff;
+    border: 2px solid darkcyan;
+    color: #222;
+}
+
+.expense-btn {
+    float: right;
+    padding: 6px 10px;
+    border: none;
+    background-color: #fabb47;
+    color: #fff;
+    transition: .5s;
+    margin-right: 8px;
+}
+
+.expense-btn:hover {
+    transition: .5s;
+    background-color: #fff;
+    border: 2px solid #fabb47;
+    color: #222;
+}
+
+tr td img {
+    height: 30px;
+}
+
+.chart-heading {
+    background-color: darkcyan;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-heading select {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    padding-top: 12px;
+    outline: none;
+    color: #fff;
+}
+
+.chart-heading select:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.filterBtn {
+    padding-bottom: 6px;
+    font-weight: bold;
+    width: 198px;
+    padding: 6px 1px 7px 6px;
+    color: #fff;
+    text-align: center;
+    margin-top: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.filterBtn:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    background-color: rgb(11, 107, 107);
+    ;
+}

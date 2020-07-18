@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="transaction.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header px-3">
+            <div class="logo-hamburger">
+                <div class="d-flex">
+                    <button class="hamburger" onclick="openNavBar()">
+                    <svg class="hamburger-svg" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+                    </svg>
+                    </button>
+                </div>
+                <div class="logo d-flex">
+                    <img src="images/expense-logo.png" alt="Logo" srcset="" height="50px">
+                    <h5 class="mt-4">Expense <span class="font-weight-bold" style="color: #fabb47;">Tracker</span></h5>
+                </div>
+            </div>
+            <div class="left-content d-flex align-items-center">
+                <p class="padding mb-0">Welcome <span id="user" class="font-weight-bold text-capitalize"></span></p>
+                <img class="padding" src="images/avatar-png-1.png" width="50px" alt="Avatar">
+                <p class="padding logout-btn mb-0" onclick="navigation()"><i class="fas fa-power-off "></i>Logout</p>
+            </div>
+        </div>
+    </header>
+    <!-- Header section end -->
+    <!-- Side navBar -->
+    <div class="overlay"></div>
+    <section id="sideNavBar">
+        <span id="closeBtn" onclick="closeNavBar()">&times;</span>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="navigation(event)"><i class="fas fa-chart-area"></i>Dashboard</a></li>
+                <li><a href="#" onclick="navigation(event)"><i class=" fas fa-hand-holding-usd "></i>Transactions</a></li>
+                <li><a href="#" onclick="navigation(event)"><i class="fas fa-address-card "></i>About</a></li>
+                <li><a href="#" onclick="navigation(event)"><i class="fas fa-power-off "></i>Logout</a></li>
+            </ul>
+        </nav>
+    </section>
+    <!-- side navbar end -->
+
+    <main>
+        <!-- Filters Section-->
+        <div class="filters">
+            <div class="padding filterWidth">
+                <label class="font-weight-bold pb-2">Select Month</label>
+                <select id="month" class="form-control">
+                    <option value="1">Jan</option>
+                    <option value="2">Feb</option>
+                    <option value="3">Mar</option>
+                    <option value="4">Apr</option>
+                    <option value="5">May</option>
+                    <option value="6">Jun</option>
+                    <option value="7">Jul</option>
+                    <option value="8">Aug</option>
+                    <option value="9">Sep</option>
+                    <option value="10">Oct</option>
+                    <option value="11">Nov</option>
+                    <option value="12">Dec</option>
+                </select>
+            </div>
+
+            <div class="padding filterWidth">
+                <label class="font-weight-bold pb-2">Selet Year</label>
+                <select id="year" class="form-control">
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2022</option>
+                </select>
+            </div>
+            <div class="padding filterWidth">
+                <label class="font-weight-bold pb-2">Selet Taransaction Type</label>
+                <select id="type-filter" class="form-control">
+                    <option value="both">Both</option>
+                    <option value="income">Incomes</option>
+                    <option value="expense">Expenses</option>
+                </select>
+            </div>
+            <button class="btn btn-primary " style="margin-top: 35px;" onclick="filter()">Filter</button>
+        </div>
+        <!-- Filters Section End -->
+
+
+        <!-- Income Modal Section -->
+        <div class="modal fade w-100 h-100" id="incomeModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content " style="width: 130%;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Income</h5>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div>
+                            <label for="account" class="font-weight-light">Select your Account<span class="text-danger">*</span></label>
+
+                            <select id="account" class="fa form-control text-muted outine-none border-bottom" required>
+               
+                                    <option selected value="personal-account">&#xf007; Personal Account</option>
+ 
+                                    <option selected value="mcb-bank">&#xf2c2; MCB BANK</option>
+    
+                                    <option selected value="hbl-bank">&#xf09d; HBL BANK</option>
+                                   
+                                </select>
+                        </div>
+                        <div class="mt-4 form-group">
+                            <input type="number" id="amount" name="amount" class="form-control border-bottom" required>
+                            <label for="amount" class="mb-0 font-weight-light floating">Amount<span class="text-danger">*</span></label>
+                        </div>
+                        <div>
+                            <label class="d-block font-weight-light">Receiving Date</label>
+                            <input type="date" id="myDate" class="text-muted border-bottom w-100" required>
+                        </div>
+                        <div class="mt-4 form-group">
+                            <input type="text" name="description" id="description" class="text-muted border-bottom w-100 margin-top form-control" required>
+                            <!-- <textarea name="text" id="discription" cols="1" rows="1" class="form-control border-bottom" required></textarea> -->
+                            <label for="description" class="mb-0 font-weight-light floating">Description<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-light" for="category">Selet Category<span class="text-danger">*</span></label>
+                            <select id="category" class=" form-control text-muted outine-none border-bottom" required>
+                                    <option value="Project-Income">Project</option>
+                                    <option value="Salary-Income">Salary</option>
+                                    <option value="Grant-Income" >Grant</option>
+                                    <option value="Reimbursements-income">Reimbursements</option>
+                                    <option value="Others-Income">Others</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer border-top-0">
+                        <button type="button" class="btn btn-success" onclick="saveIncome()">Add Income</button>
+                        <button type="button" class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Income Modal Section End-->
+
+        <!-- Expense Modal Section -->
+        <div class="modal fade w-100 h-100" id="expenseModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="width: 135%;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add New Expense</h5>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div>
+                            <label for="account-expense" class="font-weight-light">Selet your Account<span class="text-danger">*</span></label>
+                            <select id="account-expense" class="fa form-control text-muted outine-none border-bottom" required>
+               
+                                    <option selected value="personal-account">&#xf007; Personal Account</option>
+ 
+                                    <option selected value="mcb-bank">&#xf2c2; MCB BANK</option>
+    
+                                    <option selected value="hbl-bank">&#xf09d; HBL BANK</option>                 
+                            </select>
+                        </div>
+                        <div class="mt-4 form-group">
+                            <input id="amount-expense" type="number" name="amount" class="form-control border-bottom" required>
+                            <label for="amount-expense" class="mb-0 font-weight-light floating">Amount<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="category-expense" class="font-weight-light">Selet Category<span class="text-danger">*</span></label>
+                            <select id="category-expense" class=" form-control text-muted outine-none border-bottom" required>
+                                        <option value="Bills And Utilities" >Bills And Utilities</option>
+                                        <option value="Charity" >Charity</option>
+                                        <option value="Fees & Charges">Fees & Charges</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Clothing & Footwear">Clothing & Footwear</option>
+                                        <option value="Food & Dinning">Food & Dinning</option>
+                                        <option value="Health & Fitness">Health & Fitness</option>
+                            </select>
+                        </div>
+                        <div class="mt-4 form-group">
+                            <input type="text" name="description" id="description-expense" class="text-muted border-bottom w-100 margin-top form-control" required>
+                            <!-- <textarea name="text" cols="1" rows="1" class="form-control border-bottom" required></textarea> -->
+                            <label for="description-expense" class="mb-0 font-weight-light floating">Description<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="mt-4">
+                            <label for="date-expense" class="d-block font-weight-light">Creation Date</label>
+                            <input type="date" id="myDate2" class="text-muted border-bottom w-100" required>
+                        </div>
+                        <div class="mt-4 form-group">
+                            <label class="d-block font-weight-light">Add bill / Receipt</label>
+                            <label type="file" class=" btn-success py-2 px-3 text-uppercase font-weight-normal rounded">
+                                    
+                                <input type="file" id="file-expense" class="d-none form-control" required>Browse
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top-0">
+                        <button type="button" class="btn btn-success" onclick="saveExpense()">Add Expense</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Expense Modal Section End -->
+
+
+        <!-- Transactions Table Section -->
+        <section class="transaction-card">
+            <div class="transaction-header">
+                <div>
+                    <h4>Transactions</h4>
+                </div>
+                <div>
+                    <button onclick="todayDate()" class="butn btn btn-lg padding font-weight-bold pointer" data-toggle="modal" data-target="#incomeModel"><i class="fa fa-plus-square" aria-hidden="true"></i> Income</button>
+                    <button onclick="todayDate()" class=" butn btn btn-lg outine-none font-weight-bold padding pointer" data-toggle="modal" data-target="#expenseModel"><i class="fa fa-minus-square" aria-hidden="true"></i> Expense</button>
+                </div>
+            </div>
+            <div class="transaction-table">
+                <table class="table table-bordered table-hover" id="transaction-table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row" class="text-center"><img src="images/right-arrow.png" alt="Right Arrow" height="30px"></td>
+                            <td>16-Jun-20</td>
+                            <td>Project</td>
+                            <td><span class="font-weight-bold">RS</span> 1000</td>
+                            <td class="text-center"><img src="images/up-arrow.png" alt="Arrow up" height="30px"></td>
+                        </tr>
+                        <tr>
+                            <td scope="row" class="text-center"><img src="images/left-arrow (1).png" alt="Left Arrow" height="30px"></td>
+                            <td>16-Jun-20</td>
+                            <td>Rent</td>
+                            <td><span class="font-weight-bold">RS</span> 500</td>
+                            <td class="text-center"><img src="images/down-arrow.png" alt="Arrow up" height="30px"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <!-- Transactions Table Section End-->
+
+    </main>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDaVV7V9SGKMkaQw2Pjqwxvr-FuP4jWNII",
+            authDomain: "expensetracker-1149f.firebaseapp.com",
+            databaseURL: "https://expensetracker-1149f.firebaseio.com",
+            projectId: "expensetracker-1149f",
+            storageBucket: "expensetracker-1149f.appspot.com",
+            messagingSenderId: "703318557883",
+            appId: "1:703318557883:web:26734784e9c67a65da559e",
+            measurementId: "G-9ENGJ24XPS"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <!-- JS File -->
+    <script src="transaction.js"></script>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

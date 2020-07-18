@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+
+    <title>SignUp and Login Page</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header px-5">
+            <div class="logo d-flex" style="width: 20%;">
+                <img src="src/transaction/images/expense-logo.png" alt="Logo" height="50px">
+                <h5 class="mt-4">Expense <span class="font-weight-bold" style="color: #fabb47;">Tracker</span></h5>
+            </div>
+            <div class="left-content d-flex align-items-center">
+                <button class="butn btn border-0 p-2 uppercase">Home</button>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <main>
+        <!-- Overall Main section -->
+        <section class="d-flex flex-row-reverse justify-content-around form-box">
+            <!-- Left hand Animation div -->
+            <section class="left-section">
+                <img src="src/images/undraw_finance_0bdk (1).png" alt="Background Image">
+                <div class="image-bg"></div>
+            </section>
+            <!-- Left hand Animation div End -->
+
+            <!-- Right hand Form div -->
+            <section class="right-section p-4 mr-4">
+                <!-- Rigester Form -->
+                <form id="register-form">
+                    <div class="avtaar">
+                        <img src="src/images/avatar-png-1.png" class="avtaar" alt="Avtaar" height="130px">
+                    </div>
+                    <div class=" form-group">
+                        <input type="text" id="user-name" name="nameUser" autocomplete="off" class="form-control  " required>
+                        <label for="fullName" class="mb-0 font-weight-light floating">Full Name<span class="text-danger">*</span></label>
+                        <div class="error-block">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <p class="message">hello</p>
+                        </div>
+                    </div>
+                    <div class=" form-group">
+                        <input type="email" id=user-email name="emailUSer" autocomplete="off" class="form-control" required>
+                        <label for="emailUSer" class="mb-0 font-weight-light floating">Email address<span class="text-danger">*</span></label>
+                        <div class="error-block">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <p class="message">hello</p>
+                        </div>
+                    </div>
+                    <div class="input-with-float form-group">
+                        <input type="password" id="user-Password" name="passwordUser" class="form-control " required>
+                        <label for="passwordUser" class="mb-0 font-weight-light floating">Password<span class="text-danger">*</span></label>
+
+                        <div class="error-block">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <p class="message">hello</p>
+                        </div>
+                    </div>
+                    <div class="input-with-float form-group">
+                        <input type="password" name="confirmPassword" id="confirm-Password" class="form-control" required>
+                        <label for="confirmPassword" class="mb-0 font-weight-light floating">Confirm Pssword<span class="text-danger">*</span></label>
+                        <div class="error-block">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <p class="message">hello</p>
+                        </div>
+                    </div>
+                    <div class=" register-btn d-flex flex-column justify-content-center align-items-center">
+
+                        <button type="submit" id="submitBtn" onclick="validation()" onclick="register()" class="btn text-white font-weight-bold"><i class="fas fa-user-plus"></i> Register</button>
+                        <button type="button" class="btn font-weight-bold mt-3" onclick="login()"><i class="fas fa-unlock"></i> Login</button>
+                    </div>
+                </form>
+                <!-- Rigester Form End -->
+
+                <!-- Login Form -->
+                <form id="login-form">
+                    <div class="avtaar">
+                        <img src="src/images/avatar-png-1.png" class="avtaar" alt="Avtaar" height="130px">
+                    </div>
+                    <div class=" form-group">
+                        <input type="text" id="userName" name="nameUser" autocomplete="off" class="form-control  " required>
+                        <label for="fullName" class="mb-0 font-weight-light floating">Email<span class="text-danger">*</span></label>
+                        <div class="error-block">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <p class="message">hello</p>
+                        </div>
+                    </div>
+                    <div class="input-with-float form-group">
+                        <input type="password" id="userPassword" name="passwordUser" class="form-control " required>
+                        <label for="passwordUser" class="mb-0 font-weight-light floating">Password<span class="text-danger">*</span></label>
+
+                        <div class="error-block">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <p class="message">hello</p>
+                        </div>
+                    </div>
+
+                    <div class=" login-btn d-flex flex-column justify-content-center align-items-center">
+                        <button type="submit" class="btn font-weight-bold mt-3" onclick="loginValidation()" onclick="login()"><i class="fas fa-unlock"></i> Login</button>
+                        <button type="button" id="button" onclick="register()" class="btn text-white font-weight-bold"><i class="fas fa-user-plus"></i> Register</button>
+
+                    </div>
+                </form>
+                <!-- Login Form End -->
+            </section>
+            <!-- Right hand Form div End-->
+        </section>
+    </main>
+    <!-- Main section End -->
+    <!-- /footer Section -->
+    <footer>
+        <div class="text-center">
+            <h6>A Product of Expense <span class="font-weight-bold" style="color: #fabb47;">Tracker</span></h6>
+        </div>
+    </footer>
+    <!-- /footer Section End-->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDaVV7V9SGKMkaQw2Pjqwxvr-FuP4jWNII",
+            authDomain: "expensetracker-1149f.firebaseapp.com",
+            databaseURL: "https://expensetracker-1149f.firebaseio.com",
+            projectId: "expensetracker-1149f",
+            storageBucket: "expensetracker-1149f.appspot.com",
+            messagingSenderId: "703318557883",
+            appId: "1:703318557883:web:26734784e9c67a65da559e",
+            measurementId: "G-9ENGJ24XPS"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <!-- JS Files -->
+
+    <script src="index.js"></script>
+    <script>
+        // Toggle Between Register and login button
+
+        let loginBtn = document.getElementById("login-form")
+        let registerBtn = document.getElementById("register-form")
+
+
+        function login() {
+            loginBtn.style.left = "1px"
+            registerBtn.style.left = "-730px"
+
+        }
+
+        function register() {
+            loginBtn.style.left = "-730px"
+            registerBtn.style.left = "1px"
+
+        }
+    </script>
+
+    <!-- <script src="transaction.js"></script> -->
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

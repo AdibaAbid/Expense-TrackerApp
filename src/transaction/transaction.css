@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-boxs;
+    background-color: #f9f4f4;
+}
+
+header {
+    position: sticky;
+    top: 0px;
+    z-index: 15;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkcyan;
+    color: #fff;
+    font-size: 20px;
+    padding-top: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    /* margin-bottom: 8px; */
+}
+
+.logout-btn {
+    padding: 10px 12px;
+    cursor: pointer;
+}
+
+.fas {
+    padding-right: 5px;
+}
+
+.overlay {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #9e9e9e87;
+    display: none;
+    transition: all .5s ease-in;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#sideNavBar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    margin-right: 50px;
+    background-color: #fff;
+    z-index: 1;
+    overflow: hidden;
+    padding-top: 50px;
+    transition: all .5s ease-in-out;
+}
+
+#sideNavBar::-webkit-scrollbar {
+    width: 0;
+}
+
+#sideNavBar a {
+    text-decoration: none;
+    display: block;
+    font-size: 19px;
+    color: #fabb47;
+    font-weight: 500;
+    padding: 20px 0 20px 28px;
+    transition: all .5s ease-in;
+}
+
+#sideNavBar a:hover {
+    background-color: #fabb47;
+    color: #fff;
+    padding-left: 15px;
+    transition: .5s;
+}
+
+#sideNavBar .fas {
+    color: darkcyan;
+    font-size: 25px;
+    margin-right: 5px;
+    margin-bottom: -3px;
+}
+
+#closeBtn {
+    position: absolute;
+    color: #fabb47;
+    font-weight: 800;
+    cursor: pointer;
+    top: 0;
+    right: 25px;
+    font-size: 35px !important;
+}
+
+.logo-hamburger {
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+}
+
+.hamburger {
+    background-color: darkcyan;
+    border: none;
+    outline: none;
+}
+
+.hamburger:focus {
+    outline: none;
+}
+
+.hamburger-svg {
+    fill: #fabb47;
+    height: 20px;
+    width: 20px;
+    transform: scale(1.5)
+}
+
+.padding {
+    padding-right: 10px;
+}
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.btn {
+    color: #fff;
+}
+
+.butn:hover {
+    background-color: rgb(9, 179, 179);
+    color: #fff;
+}
+
+.filters {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 30px;
+    margin-top: 30px;
+}
+
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkcyan;
+    padding: 0 30px;
+    height: 80px;
+    color: #fff;
+    font-size: 22px;
+    margin-top: 35px;
+}
+
+.transaction-card {
+    margin: 15px;
+    box-shadow: -2px 2px 11px 1px #e2dcdc;
+}
+
+.modal-header {
+    background-color: darkcyan;
+    color: #fff;
+}
+
+.modal-body select,
+.modal-body input,
+.modal-body textarea {
+    border: none;
+}
+
+.filterWidth {
+    width: 20%;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.form-group {
+    position: relative;
+}
+
+.floating {
+    position: absolute;
+    top: 10px;
+    left: 9px;
+    transition: 200ms;
+    opacity: 1;
+}
+
+.form-control:focus+.floating,
+.form-control:valid+.floating {
+    transform: translate3d(0, -50%, 0);
+    opacity: 0.68;
+    top: -8px;
+}
+
+input[type="date"]:focus {
+    border: none;
+}
+
+tr td img {
+    height: 30px;
+}
+
+tr span {
+    font-weight: 800;
+}
