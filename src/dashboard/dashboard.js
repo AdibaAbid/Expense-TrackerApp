@@ -70,6 +70,8 @@ function chartData() {
 }
 
 function getDataForChart() {
+    yExpense.length = 0
+    yIncome.length = 0
     const userId = localStorage.getItem('userId')
     const chartYear = document.getElementById('chart-Year').value
 

@@ -139,6 +139,8 @@ function saveIncome() {
 function clearForm() {
     document.getElementById("amount").value = ''
     document.getElementById("description").value = ''
+    document.getElementById("amount").value = ''
+        // document.getElementById("myDate").valueAsDate = ''
 }
 
 function saveExpense() {
@@ -264,7 +266,7 @@ function filter() {
             snaps.forEach(function(doc) {
                 const data = doc.data()
 
-                console.log("date--->", moment(data.date.toDate()).format('YYYY'))
+                console.log("year--->", moment(data.date.toDate()).format('YYYY'))
                 console.log('month---****', moment(data.date.toDate()).format('M'))
                 console.log('month Filter---****', monthFilter)
 
