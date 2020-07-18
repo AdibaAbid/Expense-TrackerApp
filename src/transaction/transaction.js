@@ -269,9 +269,9 @@ function filter() {
                 console.log("year--->", moment(data.date.toDate()).format('YYYY'))
                 console.log('month---****', moment(data.date.toDate()).format('M'))
                 console.log('month Filter---****', monthFilter)
-
+                debugger
                 if ((moment(data.date.toDate()).format('YYYY') == yearFilter) && (data.type == typeFilter) && (moment(data.date.toDate()).format('M') == monthFilter)) {
-
+                    debugger
                     const row = document.createElement('TR')
                     const type = document.createElement('TD')
                     const amount = document.createElement('TD')
